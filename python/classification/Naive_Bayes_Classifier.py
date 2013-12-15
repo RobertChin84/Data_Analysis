@@ -2,7 +2,7 @@ import numpy as np
 import sys
 sys.path.append("../stats_lib/")
 import statistics as stat
-
+#example data and algo taken from Wiki Naive Bayes Classifer
 def generate_data():
     data =[['male',6,180,12],
            ['male',5.92,190,11],
