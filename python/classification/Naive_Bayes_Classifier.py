@@ -16,6 +16,8 @@ def generate_data():
     return data,labels
 
 def generate_prior_stats(data,labels):
+    #take the training data provided and convert to dictionary for computation
+    #of prior stats of the mean and variance for training data set. 
     temp_data   = {}
     prior_stats = {}
     index_of_classifer = labels.index("classifer")
@@ -40,6 +42,8 @@ def generate_prior_stats(data,labels):
     return prior_stats
         
 def predict_data(x,prior,labels):
+    #Take the prior stats and compute the normal probabilities for the Bayes
+    #probability
     probs = {}
     number_of_classes = len(prior.keys())
     inital_prob       = 1.0/float(number_of_classes)
