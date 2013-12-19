@@ -1,6 +1,8 @@
 import numpy as np
 from scipy.stats import distributions
-
+#Wrote an ANOVA test to work with a dictionary of data where the result gives a printour
+#of the p_value,F_obs from data, F_crit based on the required confidence level alpha
+#the data has to have a form of data  {label1: [x1..xn] label2: [y1..yn]..labelm}
 
 def compute_p_value(fobs,DFG,DFE):
     f_value = distributions.f.cdf(fobs, DFG, DFE)
