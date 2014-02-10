@@ -1,6 +1,6 @@
 import numpy as np
 import sys
-sys.path.append("../stats_lib/")
+sys.path.append("/Users/rchin/MyDrive/stochastic_project/Data_Analysis/python/stats_lib")
 import statistics as stat
 #example data and algo taken from Wiki Naive Bayes Classifer
 def generate_data():
@@ -36,7 +36,6 @@ def generate_prior_stats(data,labels):
         for label in temp_data[classifer]:
             if label not in prior_stats[classifer]:
                 prior_stats[classifer][label] = {}
-                
             prior_stats[classifer][label]['mean']     = np.mean(temp_data[classifer][label])
             prior_stats[classifer][label]['variance'] = stat.sample_variance(temp_data[classifer][label])        
     return prior_stats
@@ -58,21 +57,22 @@ def predict_data(x,prior,labels):
         
         normalising_prob+=probs[classifer]*inital_prob
     max_prob = 0.0
+    prediction = "Unknown"
     for classifer in probs:
-        print probs[classifer]
         prob  = probs[classifer]/normalising_prob
         if prob > max_prob:
             max_prob   = prob
             prediction = classifer
            
-    print "Predicited class for:"
-    print x 
-    print "class: {0}".format(prediction)
-    print "Probability density value: {0}".format(max_prob)
+    #print "Predicited class for:"
+    #print x 
+    #print "class: {0}".format(prediction)
+    #print "Probability density value: {0}".format(max_prob)
+    return prediction
        
-data,labels = generate_data()
-prior_stats = generate_prior_stats(data,labels)
-predict_data(['unknown',6,130,8],prior_stats,labels)
+#data,labels = generate_data()
+#prior_stats = generate_prior_stats(data,labels)
+#predict_data(['unknown',6,130,8],prior_stats,labels)
     
     
     
